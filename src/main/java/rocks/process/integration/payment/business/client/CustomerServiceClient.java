@@ -20,7 +20,7 @@ public class CustomerServiceClient {
     private RestTemplate restTemplate;
 
     public Customer retrieveCustomerById(Long customerId) {
-        return restTemplate.getForObject("http://localhost:8080/customer/"  + customerId, Customer.class);
+        return restTemplate.getForObject("https://camel.herokuapp.com/customer/"  + customerId, Customer.class);
     }
 
     public void editLoyaltyBalance(Customer customer, String orderId) {
