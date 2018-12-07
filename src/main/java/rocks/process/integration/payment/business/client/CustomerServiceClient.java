@@ -23,9 +23,13 @@ public class CustomerServiceClient {
         return restTemplate.getForObject("https://camel.herokuapp.com/customer/"  + customerId, Customer.class);
     }
 
-    public void editLoyaltyBalance(Customer customer, String orderId) {
+    public void editLoyaltyBalance(Customer customer) {
     	
-        //restTemplate.put("http://localhost:8080/loyalty/" + customer.getCustomerId() +"/"+orderId, new HttpEntity<>(customer), OrderMessage.class);
+    	//restTemplate.getForObject("https://camel.herokuapp.com/loyalty/"  + customer.getCustomerId(), Customer.class);
+
+    	restTemplate.put("https://camel.herokuapp.com/loyalty/" + customer.getCustomerId(), new HttpEntity<>(customer), OrderMessage.class);
+          
+     //   restTemplate.put("http://localhost:8080/loyalty/" + customer.getCustomerId() +"/"+orderId, new HttpEntity<>(customer), OrderMessage.class);
         
     	}
 }
