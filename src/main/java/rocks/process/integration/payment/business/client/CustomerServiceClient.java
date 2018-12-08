@@ -23,9 +23,9 @@ public class CustomerServiceClient {
         return restTemplate.getForObject("https://camel.herokuapp.com/customer/"  + customerId, Customer.class);
     }
 
-    public void editLoyaltyBalance(Customer customer) {
+    public Customer editLoyaltyBalance(Customer customer) {
     	
-    	restTemplate.getForObject("https://camel.herokuapp.com/loyalty/"  + customer.getCustomerId(), Customer.class);
+    	return restTemplate.getForObject("https://camel.herokuapp.com/loyalty/"  + customer.getCustomerId(), Customer.class);
 
     //	restTemplate.put("https://camel.herokuapp.com/loyalty/" + customer.getCustomerId(), new HttpEntity<>(customer), OrderMessage.class);
           

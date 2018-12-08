@@ -29,8 +29,7 @@ public class PaymentService {
 
     public Transaction processPayment(Long customerId, String orderId, Amount amount, Integer numberOfItems, String cardTranactionId, Double chargingAmountOfMoney) throws Exception {
         Customer customer = customerService.retrieveCustomerById(customerId);
-       System.out.println("dieser customer: " + customer.getCustomerId()+" "+ customer.getBirthdate());
-       customerService.editLoyaltyBalance(customer); 
+        customerService.editLoyaltyBalance(customer); 
        Transaction transaction = new Transaction(customer.getCustomerId(), orderId, amount, chargingAmountOfMoney, numberOfItems, cardTranactionId);
         
         
